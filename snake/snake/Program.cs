@@ -17,7 +17,9 @@ namespace snake
             p2.Draw();
 
             Horisontalline line = new Horisontalline(5, 10, 8, '+');
+            Verticalline line2 = new Verticalline(5, 10, 4, '=');
             line.Draw();
+            line2.Draw();
             Console.ReadLine();
         }
     }
