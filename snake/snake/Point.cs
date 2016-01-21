@@ -57,5 +57,10 @@ namespace snake
             Console.Write(sym);
         }
 
+        public void Clear()
+        {
+            sym = ' ';
+            Draw();
+        }
     }
 }
