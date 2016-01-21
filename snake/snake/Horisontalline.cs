@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace snake
 {
-    class Horisontalline
+    class Horisontalline : Figure
     {
-        List<Point> pList;
-
         public Horisontalline(int xLeft, int xRight, int y, char sym)
         {
             pList = new List<Point>();
@@ -20,12 +18,6 @@ namespace snake
             }
         }
 
-        public void Draw()
-        {
-            foreach (Point p in pList)
-            {
-                p.Draw();
-            }
-        }
+
     }
 }
