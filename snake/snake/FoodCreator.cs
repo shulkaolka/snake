@@ -25,6 +25,8 @@ namespace snake
         {
             int x = random.Next(2, mapWidht - 2);
             int y = random.Next(2, mapHeight - 2);
+            Point food = new Point(x, y, sym);
+            //food.IsHit()
             return new Point(x, y, sym);
         }
     }

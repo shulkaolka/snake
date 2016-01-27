@@ -54,6 +54,17 @@ namespace snake
             }
             return false;
         }
+
+        internal bool IsHitFood(Point food)
+        {
+            for (int i = 0; i < pList.Count - 2; i++)
+            {
+                if (food.IsHit(pList[i]))
+                    return true;
+            }
+            return false;
+        }
+
         public void HandlKey(ConsoleKey key)
         {
             
