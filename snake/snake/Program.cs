@@ -10,53 +10,32 @@ namespace snake
     class Program
     {
         static void Main(string[] args)
-        {
-            /*Point p1 = new Point(1, 3, '*');
-            p1.Draw();
-
-            Point p2 = new Point(4, 5, '#');
-            p2.Draw();
-            
-            Horisontalline line = new Horisontalline(5, 10, 8, '+');
-            Verticalline line2 = new Verticalline(5, 10, 4, '=');
-            Console.SetBufferSize(80, 25);*/
-            Horisontalline line = new Horisontalline(0, 78, 0, '+');
-            Verticalline line2 = new Verticalline(0, 24, 0, '=');
-            Horisontalline line3 = new Horisontalline(0, 78, 24, '+');
-            Verticalline line4 = new Verticalline(0, 24, 78, '=');
-            line.Draw();
-            line2.Draw();
-            line3.Draw();
-            line4.Draw();
-            //Отрисовка точек
-            Point p = new Point(4, 5, '*');
-            Snake snake = new Snake(p, 4, Direction.RIGHT);
-            snake.Draw();
-
-            FoodCreator foodCreator = new FoodCreator(80, 25, '$');
-            Point food = foodCreator.CreateFood();
-            food.Draw();
-
-            while (true)
             {
-                if (snake.Eat(food))
-                {
-                    food = foodCreator.CreateFood();
-                    food.Draw();
-                }
-                else
-                {
-                    snake.Move();
-                }
+                Verticalline vl = new Verticalline(0, 10, 5, '%');
+                Draw(vl);
 
-                Thread.Sleep(100);
+                Point p = new Point(4, 5, '*');
+                Figure fSnake = new Snake(p, 4, Direction.RIGHT);
+                Draw(fSnake);
+                Snake snake = (Snake)fSnake;
 
-                if (Console.KeyAvailable)
+                Horisontalline hl = new Horisontalline(0, 5, 6, '&');
+
+                List<Figure> figures = new List<Figure>();
+                figures.Add(fSnake);
+                figures.Add(vl);
+                figures.Add(hl);
+
+                foreach (var f in figures)
                 {
-                    ConsoleKeyInfo key = Console.ReadKey();
-                    snake.HandlKey(key.Key);
+                    f.Draw();
                 }
+            Console.ReadLine();
+            }
+
+            static void Draw(Figure figure )
+		{
+                figure.Draw();
             }
         }
     }
-}
